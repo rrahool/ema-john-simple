@@ -10,3 +10,12 @@
     color: blue;
     font-weight: 400;
 }
+
+.main-button{
+    background-color: orange;
+    padding: 5px 25px;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
