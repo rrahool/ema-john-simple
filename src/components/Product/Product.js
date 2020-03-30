@@ -5,7 +5,7 @@ import './Product.css';
 import { Link } from 'react-router-dom';
 
 const Product = (props) => {
-    console.log(props.products.key);
+    console.log(props);
 
     const { img, name, seller, price, stock, key } = props.products;
 
@@ -20,12 +20,12 @@ const Product = (props) => {
                 <p><small>by: {seller}</small></p>
                 <p>${price}</p>
                 <p><small>Only {stock} left in stock - Order soon</small></p>
-                <button 
+                { props.showAddtoCart && <button 
                     className = "main-button"
                     onClick = {() => props.handleAddProduct(props.products)} 
                 >
                     <FontAwesomeIcon icon={faShoppingCart} /> add to cart
-                </button>
+                </button>}
 
             </div>
 
