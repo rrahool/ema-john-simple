@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import fakeData from '../../fakeData';
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
-import { addToDatabaseCart } from '../../utilities/databaseManager';
+import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 
 const Shop = () => {
 
@@ -40,6 +41,20 @@ const Shop = () => {
         
         addToDatabaseCart(product.key, count);        
     }
+
+    useEffect( () => {
+        //cart
+        const savedCart = getDatabaseCart();
+        const productKeys = Object.keys(savedCart);
+
+        const previousCart = productKeys.map( existingkey => {
+            const product = fakeData.find(pd => pd.key === existingkey);
+            product.quantity = savedCart[existingkey];
+            return product;
+        });
+        // console.log(cartProducts);
+        setCart(previousCart);
+    }, []);
 
     return (
         <div className="twin-container">
