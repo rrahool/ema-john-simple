@@ -66,7 +66,7 @@ const Review = () => {
                 </Cart>
             </div>            
         </div>
-    );git
+    );
 };
 
 export default Review;

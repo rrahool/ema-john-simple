@@ -12,6 +12,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Login from './components/Login/Login';
 
 function App() {
   return (
@@ -29,10 +30,13 @@ function App() {
             <Inventory></Inventory>
           </Route>
           <Route exact path="/">
-            <Shop></Shop>
+              <Inventory></Inventory>
           </Route>
           <Route path="/product/:productKey">
               <ProductDetail></ProductDetail>
+          </Route>
+          <Route exact path="/login">
+            <Login></Login>
           </Route>
           <Route path="*">
             <NotFound></NotFound>
